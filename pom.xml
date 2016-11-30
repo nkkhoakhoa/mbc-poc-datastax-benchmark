@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.nkk.gremlin.api</groupId>
+    <artifactId>mbc-poc-datastax-benchmark</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java -->
+        <dependency>
+            <groupId>com.tinkerpop.gremlin</groupId>
+            <artifactId>gremlin-java</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.thinkaurelius.titan/titan-core -->
+        <!--<dependency>
+            <groupId>com.thinkaurelius.titan</groupId>
+            <artifactId>titan-all</artifactId>
+            <version>1.0.0</version>
+        </dependency>-->
+        <!--<dependency>
+            <groupId>com.thinkaurelius.titan</groupId>
+            <artifactId>titan-berkeleyje</artifactId>
+            <version>1.0.0</version>
+        </dependency>-->
+        <dependency>
+            <groupId>org.apache.tinkerpop</groupId>
+            <artifactId>gremlin-core</artifactId>
+            <version>3.2.0-incubating</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.datastax.cassandra</groupId>
+            <artifactId>dse-driver</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+    </dependencies>
+
+</project>
