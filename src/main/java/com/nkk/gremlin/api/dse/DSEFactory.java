@@ -1,5 +1,6 @@
 package com.nkk.gremlin.api.dse;
 
+import com.datastax.driver.core.PoolingOptions;
 import com.datastax.driver.dse.DseCluster;
 import com.datastax.driver.dse.graph.GraphOptions;
 
@@ -9,9 +10,9 @@ import com.datastax.driver.dse.graph.GraphOptions;
 public class DSEFactory {
 
     public DseCluster getCluster() {
-        return DseCluster.builder().addContactPoint("172.16.50.20")
+        return DseCluster.builder().addContactPoint("172.16.40.10")
                 .withPort(9042)
-                .withGraphOptions(new GraphOptions().setGraphName("abc"))
+                .withGraphOptions(new GraphOptions().setGraphName("BENCHMARK_DEMO"))
                 .build();
     }
 

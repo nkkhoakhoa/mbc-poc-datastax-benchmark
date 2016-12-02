@@ -46,6 +46,6 @@ public class User extends BaseEntity implements Serializable{
 
     @Override
     public String getInsertCommand() {
-        return String.format("graph.addVertex(label,'%s', 'email','%s'," + " 'gender','%s')", getUsername(), getEmail(), getGender());
+        return String.format("graph.addVertex(label, 'user', 'username', '%s', 'email','%s'," + " 'gender','%s')", getUsername(), getEmail(), getGender());
     }
 }
