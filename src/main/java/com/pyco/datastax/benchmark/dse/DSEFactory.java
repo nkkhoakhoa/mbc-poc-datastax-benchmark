@@ -1,4 +1,4 @@
-package com.nkk.gremlin.api.dse;
+package com.pyco.datastax.benchmark.dse;
 
 import com.datastax.driver.core.PoolingOptions;
 import com.datastax.driver.dse.DseCluster;

@@ -1,6 +1,6 @@
-package com.nkk.gremlin.api;
+package com.pyco.datastax.benchmark;
 
-import com.nkk.gremlin.api.data.draft.DraftUserData;
+import com.pyco.datastax.benchmark.data.draft.DraftUserData;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 

@@ -1,14 +1,12 @@
-package com.nkk.gremlin.api.data.draft;
+package com.pyco.datastax.benchmark.data.draft;
 
 import com.datastax.driver.dse.DseCluster;
 import com.datastax.driver.dse.DseSession;
-import com.google.common.collect.ImmutableMap;
-import com.nkk.gremlin.api.domain.entities.User;
-import com.nkk.gremlin.api.dse.DSEFactory;
+import com.pyco.datastax.benchmark.domain.entities.User;
+import com.pyco.datastax.benchmark.dse.DSEFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**

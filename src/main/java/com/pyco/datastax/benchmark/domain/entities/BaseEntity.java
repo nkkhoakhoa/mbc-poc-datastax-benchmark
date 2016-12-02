@@ -1,4 +1,4 @@
-package com.nkk.gremlin.api.domain.entities;
+package com.pyco.datastax.benchmark.domain.entities;
 
 /**
  * @author KhoaNguyenKieu

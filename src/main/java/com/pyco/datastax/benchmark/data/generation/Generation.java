@@ -1,4 +1,4 @@
-package com.nkk.gremlin.api.data;
+package com.pyco.datastax.benchmark.data.generation;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;

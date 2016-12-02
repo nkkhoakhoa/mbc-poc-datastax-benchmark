@@ -1,4 +1,4 @@
-package com.nkk.gremlin.api.data;
+package com.pyco.datastax.benchmark.data.generation;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -15,8 +15,6 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.StringJoiner;
-import java.util.StringTokenizer;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**

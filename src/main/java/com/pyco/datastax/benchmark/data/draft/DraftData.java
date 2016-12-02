@@ -1,4 +1,4 @@
-package com.nkk.gremlin.api.data.draft;
+package com.pyco.datastax.benchmark.data.draft;
 
 /**
  * @author KhoaNguyenKieu

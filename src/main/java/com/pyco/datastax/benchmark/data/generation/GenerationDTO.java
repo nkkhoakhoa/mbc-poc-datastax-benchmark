@@ -1,4 +1,4 @@
-package com.nkk.gremlin.api.data;
+package com.pyco.datastax.benchmark.data.generation;
 
 /**
  * Created by pyco on 12/1/16.
