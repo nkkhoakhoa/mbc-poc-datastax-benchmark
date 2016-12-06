@@ -5,7 +5,7 @@ package com.pyco.datastax.benchmark.data.generation;
  */
 public abstract class AbstractGeneration {
 
-    protected static final String PATH        = "/Users/pyco/Public/benchmark-data/";
+    protected static final String PATH        = "/BatchUserInsert/pyco/Public/benchmark-data/";
 
     protected static String getNewLine(){
         return System.getProperty("line.separator");
