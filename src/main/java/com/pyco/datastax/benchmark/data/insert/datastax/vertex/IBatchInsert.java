@@ -1,8 +1,6 @@
-package com.pyco.datastax.benchmark.data.insert;
+package com.pyco.datastax.benchmark.data.insert.datastax.vertex;
 
-import com.pyco.datastax.benchmark.connection.ConnectionPool;
-
-import java.io.IOException;
+import com.pyco.datastax.benchmark.data.insert.datastax.connection.ConnectionPool;
 
 /**
  * Created by pyco on 12/2/16.

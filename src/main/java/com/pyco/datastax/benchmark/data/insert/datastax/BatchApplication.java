@@ -1,16 +1,19 @@
-package com.pyco.datastax.benchmark;
+package com.pyco.datastax.benchmark.data.insert.datastax;
 
 import com.datastax.driver.dse.DseCluster;
-import com.pyco.datastax.benchmark.connection.ConnectionPool;
-import com.pyco.datastax.benchmark.data.insert.*;
-import com.pyco.datastax.benchmark.data.insert.edge.*;
+import com.pyco.datastax.benchmark.data.insert.datastax.connection.ConnectionPool;
+import com.pyco.datastax.benchmark.data.insert.datastax.edge.*;
+import com.pyco.datastax.benchmark.data.insert.datastax.vertex.BatchArticleInsert;
+import com.pyco.datastax.benchmark.data.insert.datastax.vertex.BatchPageInsert;
+import com.pyco.datastax.benchmark.data.insert.datastax.vertex.BatchParagraphInsert;
+import com.pyco.datastax.benchmark.data.insert.datastax.vertex.BatchSiteInsert;
+import com.pyco.datastax.benchmark.data.insert.datastax.vertex.BatchTagInsert;
+import com.pyco.datastax.benchmark.data.insert.datastax.vertex.BatchUserInsert;
+import com.pyco.datastax.benchmark.data.insert.datastax.vertex.IBatchInsert;
+import com.pyco.datastax.benchmark.data.insert.datastax.vertex.StatisticDto;
 import com.pyco.datastax.benchmark.dse.DSEFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by pyco on 12/2/16.

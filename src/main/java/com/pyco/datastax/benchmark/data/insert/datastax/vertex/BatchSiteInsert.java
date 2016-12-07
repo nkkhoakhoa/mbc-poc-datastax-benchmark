@@ -1,4 +1,4 @@
-package com.pyco.datastax.benchmark.data.insert;
+package com.pyco.datastax.benchmark.data.insert.datastax.vertex;
 
 /**
  * Created by pyco on 12/2/16.

@@ -1,21 +1,21 @@
-package com.pyco.datastax.benchmark.data.insert.edge;
+package com.pyco.datastax.benchmark.data.insert.datastax.edge;
 
-import com.pyco.datastax.benchmark.data.insert.AbstractBatchInsert;
-import com.pyco.datastax.benchmark.data.insert.InsertOptions;
+import com.pyco.datastax.benchmark.data.insert.datastax.vertex.AbstractBatchInsert;
+import com.pyco.datastax.benchmark.data.insert.datastax.vertex.InsertOptions;
 
 /**
  * Created by pyco on 12/2/16.
  */
-public class BatchUserFollowsPage extends AbstractBatchInsert {
+public class BatchUserFollowsUser extends AbstractBatchInsert {
 
     private static final String INSERT_COMMAND =    "def v1 = g.V().has('user', 'id', %s).next()\n" +
-                                                    "def v2=g.V().has('page', 'id', %s).next()\n" +
+                                                    "def v2=g.V().has('user', 'id', %s).next()\n" +
                                                     "v1.addEdge('follows',v2)";
 
     private InsertOptions insertOptions = new InsertOptions.Builder()
             .setStatement(INSERT_COMMAND)
-            .setLogFile("user-follows-page")
-            .setSourceFile(BASE_DIR + "user-follows-page.csv")
+            .setLogFile("user-follows-user")
+            .setSourceFile(BASE_DIR + "user-follows-user.csv")
             .build();
 
     @Override

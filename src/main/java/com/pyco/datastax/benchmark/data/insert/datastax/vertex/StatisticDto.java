@@ -1,4 +1,4 @@
-package com.pyco.datastax.benchmark.data.insert;
+package com.pyco.datastax.benchmark.data.insert.datastax.vertex;
 
 import java.util.LinkedList;
 import java.util.List;

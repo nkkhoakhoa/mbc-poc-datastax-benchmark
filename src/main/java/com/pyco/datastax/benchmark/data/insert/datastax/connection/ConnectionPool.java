@@ -1,9 +1,7 @@
-package com.pyco.datastax.benchmark.connection;
+package com.pyco.datastax.benchmark.data.insert.datastax.connection;
 
 import com.datastax.driver.dse.DseCluster;
 import com.datastax.driver.dse.DseSession;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

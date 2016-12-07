@@ -1,7 +1,7 @@
-package com.pyco.datastax.benchmark.data.insert.edge;
+package com.pyco.datastax.benchmark.data.insert.datastax.edge;
 
-import com.pyco.datastax.benchmark.data.insert.AbstractBatchInsert;
-import com.pyco.datastax.benchmark.data.insert.InsertOptions;
+import com.pyco.datastax.benchmark.data.insert.datastax.vertex.AbstractBatchInsert;
+import com.pyco.datastax.benchmark.data.insert.datastax.vertex.InsertOptions;
 
 /**
  * Created by pyco on 12/2/16.

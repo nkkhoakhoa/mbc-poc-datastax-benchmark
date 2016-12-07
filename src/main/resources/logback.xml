@@ -10,14 +10,14 @@
 
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>/Users/pyco/Public/benchmark-data/logs/batch.log</file>
+        <file>/Volumes/ENJOY/Temp/benckmark-data/logs/batch.log</file>
         <append>true</append>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- rollover daily -->
-            <fileNamePattern>/Users/pyco/Public/benchmark-data/logs/batch.%d{yyyy-MM-dd}.%i.log
+            <fileNamePattern>/Volumes/ENJOY/Temp/benckmark-data/logs/batch.%d{yyyy-MM-dd}.%i.log
             </fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>100MB</maxFileSize>
@@ -26,7 +26,7 @@
     </appender>
 
     <appender name="FILE-ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>/Users/pyco/Public/benchmark-data/logs/error.log</file>
+        <file>/Volumes/ENJOY/Temp/benckmark-data/logs/error.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <Pattern>
                 %d{yyyy-MM-dd HH:mm:ss} - %msg%n
@@ -35,7 +35,7 @@
 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- rollover daily -->
-            <fileNamePattern>/Users/pyco/Public/benchmark-data/logs/error.%d{yyyy-MM-dd}.%i.log
+            <fileNamePattern>/Volumes/ENJOY/Temp/benckmark-data/logs/error.%d{yyyy-MM-dd}.%i.log
             </fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>10MB</maxFileSize>
