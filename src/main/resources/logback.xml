@@ -1,59 +1,78 @@
 <configuration>
-    <timestamp key="byDay" datePattern="yyyyMMdd'T'HHmmss"/>
-    <timestamp key="bySecond" datePattern="yyyy-MM-dd.HH-mm-ss" />
-
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
-
-    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>/Volumes/ENJOY/Temp/benckmark-data/logs/batch.log</file>
+    <appender name="FILE-GENERATE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${dir.path}/${file.name}.csv</file>
         <append>true</append>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+            <pattern>%msg</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- rollover daily -->
-            <fileNamePattern>/Volumes/ENJOY/Temp/benckmark-data/logs/batch.%d{yyyy-MM-dd}.%i.log
-            </fileNamePattern>
+            <fileNamePattern>${dir.path}/${file.name}.%d{yyyy-MM-dd}.%i.csv</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>100MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
     </appender>
 
+    <appender name="FILE-GENERATE-PARAGRAPH" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${dir.path}/paragraph/paragraph.csv</file>
+        <append>true</append>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%msg</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${dir.path}/paragraph/paragraph.%d{yyyy-MM-dd}.%i.csv</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/batch-job.log</file>
+        <append>true</append>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/batch-job.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+
     <appender name="FILE-ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>/Volumes/ENJOY/Temp/benckmark-data/logs/error.log</file>
+        <file>${log.path}/error.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <Pattern>
-                %d{yyyy-MM-dd HH:mm:ss} - %msg%n
+                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
             </Pattern>
         </encoder>
-
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- rollover daily -->
-            <fileNamePattern>/Volumes/ENJOY/Temp/benckmark-data/logs/error.%d{yyyy-MM-dd}.%i.log
-            </fileNamePattern>
+            <fileNamePattern>${log.path}/error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>10MB</maxFileSize>
+                <maxFileSize>100MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
 
     </appender>
 
-    <logger name="com.pyco.datastax.benchmark" level="debug" additivity="false">
-        <appender-ref ref="FILE" />
-        <appender-ref ref="STDOUT" />
+    <logger name="com.pyco.db.benchmark" level="debug" additivity="false">
+        <appender-ref ref="FILE-GENERATE" />
     </logger>
-
+    <logger name="com.pyco.db.benchmark.data.generation.relationship.ParagraphGeneration" level="debug" additivity="false">
+        <appender-ref ref="FILE-GENERATE-PARAGRAPH" />
+    </logger>
     <root level="error">
-        <appender-ref ref="FILE-ERROR"/>
-        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDOUT" />
     </root>
-
 
 </configuration>
 
