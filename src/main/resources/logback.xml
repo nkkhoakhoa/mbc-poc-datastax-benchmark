@@ -5,28 +5,14 @@
         </encoder>
     </appender>
 
-    <appender name="FILE-GENERATE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${dir.path}/${file.name}.csv</file>
+    <appender name="BENCHMARK-ID" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/benchmark-only-id.log</file>
         <append>true</append>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>%msg</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${dir.path}/${file.name}.%d{yyyy-MM-dd}.%i.csv</fileNamePattern>
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>100MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
-        </rollingPolicy>
-    </appender>
-
-    <appender name="FILE-GENERATE-PARAGRAPH" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${dir.path}/paragraph/paragraph.csv</file>
-        <append>true</append>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>%msg</pattern>
-        </encoder>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${dir.path}/paragraph/paragraph.%d{yyyy-MM-dd}.%i.csv</fileNamePattern>
+            <fileNamePattern>${log.path}/benchmark-only-id.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>100MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
@@ -65,13 +51,16 @@
     </appender>
 
     <logger name="com.pyco.db.benchmark" level="debug" additivity="false">
-        <appender-ref ref="FILE-GENERATE" />
+        <appender-ref ref="FILE" />
     </logger>
-    <logger name="com.pyco.db.benchmark.data.generation.relationship.ParagraphGeneration" level="debug" additivity="false">
-        <appender-ref ref="FILE-GENERATE-PARAGRAPH" />
+
+    <logger name="com.pyco.db.benchmark.data.insert.datastax.benchmark.AbstractBenchmarkImport" level="debug" additivity="false">
+        <appender-ref ref="BENCHMARK-ID" />
     </logger>
+
+
     <root level="error">
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE-ERROR" />
     </root>
 
 </configuration>

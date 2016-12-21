@@ -19,7 +19,7 @@ public class BatchSiteInsert extends AbstractDatastaxBatchInsert {
                                             .build();
 
     @Override
-    protected String[] schemaCommands() {
+    public String[] schemaCommands() {
         return new String[] {
                 "schema.propertyKey('id').Int().ifNotExists().create()",
                 "schema.propertyKey('name').Text().ifNotExists().create()",
@@ -29,7 +29,7 @@ public class BatchSiteInsert extends AbstractDatastaxBatchInsert {
     }
 
     @Override
-    protected InsertOptions getInsertOptions() {
+    public InsertOptions getInsertOptions() {
         return insertOptions;
     }
 

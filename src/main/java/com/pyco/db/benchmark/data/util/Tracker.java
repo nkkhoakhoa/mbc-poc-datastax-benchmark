@@ -87,6 +87,10 @@ public class Tracker {
         }
     }
 
+    public Map<String, Long> getMap() {
+        return Collections.unmodifiableMap(map);
+    }
+
     private String getFilePath() {
         String trackPath = SystemUtils.getSystemProperty("tracking.path", "");
         if (StringUtils.isNotEmpty(trackPath)) {

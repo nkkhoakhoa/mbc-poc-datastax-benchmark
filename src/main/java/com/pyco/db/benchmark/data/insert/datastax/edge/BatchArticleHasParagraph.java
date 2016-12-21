@@ -6,7 +6,7 @@ import com.pyco.db.benchmark.data.insert.InsertOptions;
 /**
  * Created by pyco on 12/2/16.
  */
-public class BatchArticleHasParagraph extends AbstractDatastaxBatchInsert {
+public class BatchArticleHasParagraph extends AbstractBatchEdgeInsert {
 
     private static final String INSERT_COMMAND =    "def v1 = g.V().has('article', 'id', %s).next()\n" +
                                                     "def v2=g.V().has('paragraph', 'id', %s).next()\n" +
@@ -19,12 +19,12 @@ public class BatchArticleHasParagraph extends AbstractDatastaxBatchInsert {
             .build();
 
     @Override
-    protected String[] schemaCommands() {
+    public String[] schemaCommands() {
         return new String[0];
     }
 
     @Override
-    protected InsertOptions getInsertOptions() {
+    public InsertOptions getInsertOptions() {
         return insertOptions;
     }
 

@@ -19,7 +19,7 @@ public class BatchParagraphInsert extends AbstractDatastaxBatchInsert {
                                             .build();
 
     @Override
-    protected String[] schemaCommands() {
+    public String[] schemaCommands() {
         return new String[] {
                 "schema.propertyKey('id').Int().ifNotExists().create()",
                 "schema.propertyKey('text').Text().ifNotExists().create()",
@@ -29,7 +29,7 @@ public class BatchParagraphInsert extends AbstractDatastaxBatchInsert {
     }
 
     @Override
-    protected InsertOptions getInsertOptions() {
+    public InsertOptions getInsertOptions() {
         return insertOptions;
     }
 

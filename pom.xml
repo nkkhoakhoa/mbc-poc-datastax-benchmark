@@ -38,7 +38,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.pyco.db.benchmark.data.generation.Generation</mainClass>
+                            <mainClass>com.pyco.db.benchmark.data.insert.datastax.BatchApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -49,7 +49,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.pyco.db.benchmark.data.generation.Generation</mainClass>
+                            <mainClass>com.pyco.db.benchmark.data.insert.datastax.BatchApplication</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -149,5 +149,12 @@
             <artifactId>orientdb-enterprise</artifactId>
             <version>2.1.25</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+
     </dependencies>
 </project>

@@ -13,7 +13,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
-import java.util.concurrent.*;
 
 /**
  * Created by pyco on 12/2/16.
@@ -23,14 +22,14 @@ public abstract class AbstractDatastaxBatchInsert implements IBatchInsert {
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractDatastaxBatchInsert.class);
 
     protected static final String ID = "id";
-    protected static final String BASE_DIR = SystemUtils.getSystemProperty("data.path", "/Users/pyco/Public/benchmark-data/");
+    protected static final String BASE_DIR = SystemUtils.getSystemProperty("data.path", "/Users/pyco/Documents/benchmark-data/");
 
     private static final int minThread = Integer.valueOf(SystemUtils.getSystemProperty("min.thread", "16"));
     private static final int maxThread = Integer.valueOf(SystemUtils.getSystemProperty("max.thread", "32"));
 
-    protected static final BlockingQueue<Runnable> linkedBlockingDeque = new LinkedBlockingDeque<>(1000);
+    //protected static final BlockingQueue<Runnable> linkedBlockingDeque = new LinkedBlockingDeque<>(1000);
 
-    protected static final ExecutorService executor = new ThreadPoolExecutor(minThread, maxThread, 30, TimeUnit.SECONDS, linkedBlockingDeque);
+    //protected static final ExecutorService executor = new ThreadPoolExecutor(minThread, maxThread, 30, TimeUnit.SECONDS, linkedBlockingDeque);
 
 
     private Counter counter;
@@ -47,10 +46,17 @@ public abstract class AbstractDatastaxBatchInsert implements IBatchInsert {
         if (isDirectory(getInsertOptions().getSourceFile())) {
             File directory = new File(getInsertOptions().getSourceFile());
             for(File file : directory.listFiles()) {
-                LOGGER.info("Start loading data from: " + file.getAbsolutePath());
-                executor.execute(new ExecuteFile(cluster, file, getInsertOptions(), counter, tracker));
+                executeFile(cluster, file, counter, tracker);
             }
+        } else {
+            executeFile(cluster, new File(getInsertOptions().getSourceFile()), counter, tracker);
         }
+    }
+
+    private void executeFile(final DseCluster cluster, final File source, final Counter counter, final Tracker tracker) {
+        LOGGER.info("Start loading data from: " + source.getAbsolutePath());
+        if (!StringUtils.endsWith(source.getName(), ".csv")) return;
+        //executor.execute(new ExecuteFile(cluster, source, getInsertOptions(), counter, tracker));
     }
 
     private static class ExecuteFile implements Runnable {
@@ -119,14 +125,14 @@ public abstract class AbstractDatastaxBatchInsert implements IBatchInsert {
         }
     }
 
-    private boolean isDirectory(final String path) {
+    protected boolean isDirectory(final String path) {
         final File f = new File(path);
         return f.exists() && f.isDirectory();
     }
 
 
-    protected abstract String[] schemaCommands();
+    public abstract String[] schemaCommands();
 
-    protected abstract InsertOptions getInsertOptions();
+    public abstract InsertOptions getInsertOptions();
 
 }
